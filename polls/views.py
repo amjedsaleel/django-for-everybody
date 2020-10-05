@@ -5,5 +5,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-	return HttpResponse('Hello world. 9e1bf344')
+	return render(request, 'polls3.html')
 
+
+def owner(request):
+	return render(request, 'polls3.html')
