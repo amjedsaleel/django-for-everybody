@@ -5,8 +5,16 @@ from django.http import HttpResponse
 
 
 def index(request):
-	return render(request, 'polls3.html')
+	return render(request, 'polls4.html')
 
 
 def owner(request):
-	return render(request, 'polls3.html')
+	return render(request, 'owner.html')
+
+
+def vote(request):
+	return render(request, 'vote.html')
+
+
+def results(request):
+	return render(request, 'vote_result.html')
