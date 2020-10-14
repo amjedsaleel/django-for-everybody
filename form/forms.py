@@ -10,3 +10,4 @@ class BasicForm(forms.Form):
     mileage = forms.IntegerField()
     purchase_date = forms.DateField()
 
+    
