@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Answer to the Ultimate Question</h1>
+    <br>
+    <form action="{% url 'results' %}">
+        {% csrf_token %}
+        <input type="radio" name="choice" id="choice1" value="1" required>
+        <label for="choice1" name="choice">42</label> <br>
+        <input type="submit" value="Vote">
+    </form>
+{% endblock content %}
