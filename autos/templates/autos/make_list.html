@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Make List</h1>
+    {% if makes %}
+        <ul>
+            {% for make in makes %}
+                <li>
+                    {{ make.name }}
+                    (<a href="#">UpDate</a> | <a href="#">Delete</a>)
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="#">Add a Make</a> <br>
+    <a href="{% url 'all' %}">Back to autos</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Auto List</h1>
+    {% if autos %}
+        <ul>
+            {% for auto in autos %}
+                <ul>
+                    <li>
+                        {{ auto.nickname }}({{ auto.make }}) (<a href="#">Update</a> |
+                        <a href="#">Delete</a>) <br>
+                        {{ auto.comments }} ({{ auto.mileage }} miles)
+                    </li>
+                </ul>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There is no autos in library</p>
+    {% endif %}
+
+    {% if makes_count %}
+        <a href="#">Add an auto</a> <br>
+    {% else %}
+        <p>Please add a make before you add an auto.</p>
+    {% endif %}
+    <a href="{% url 'make_list' %}">View makes({{ makes_count }})</a> |
+    <a href="{% url 'make_create' %}">Add a make</a>
+{% endblock %}
