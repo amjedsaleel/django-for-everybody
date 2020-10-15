@@ -6,6 +6,7 @@ from django.views import View
 
 # Create your views here.
 
+
 def index(request):
     old_data = {
         'title': 'Amjed',
@@ -18,8 +19,9 @@ def index(request):
     }
     return render(request, 'forms.html', context)
 
+
 class Validate(View):
-    def get(self, request) :
+    def get(self, request):
         old_data = {
             'title': 'SakaiCar', 
             'mileage' : 42, 
