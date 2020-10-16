@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 
 from autos.models import Make, Auto
 from autos.forms import MakeForm
@@ -73,6 +73,23 @@ class MakeUpdate(LoginRequiredMixin, View):
             return render(request, self.template, context)
 
         form = form.save()
+        return redirect(self.success_url)
+
+
+class MakeDelete(LoginRequiredMixin, View):
+    model = Make
+    success_url = reverse_lazy('all')
+    template = 'autos/make_confirm_delete.html'
+
+    def get(self, request, pk):
+        make = get_object_or_404(self.model, pk=pk)
+        form = MakeForm(instance=make)
+        context = {'make': make}
+        return render(request, self.template, context)
+
+    def post(self, request, pk):
+        make = get_object_or_404(self.model, pk=pk)
+        make.delete()
         return redirect(self.success_url)
 
 
