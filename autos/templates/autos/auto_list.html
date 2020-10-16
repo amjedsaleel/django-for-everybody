@@ -18,7 +18,7 @@
     {% endif %}
 
     {% if makes_count %}
-        <a href="#">Add an auto</a> <br>
+        <a href="{% url 'auto_create' %}">Add an auto</a> <br>
     {% else %}
         <p>Please add a make before you add an auto.</p>
     {% endif %}

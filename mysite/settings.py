@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'sample',
     'hello',
     'form',
-    'autos'
+    'autos.apps.AutosConfig'
 ]
 
 MIDDLEWARE = [
