@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_bootstrap.html' %}
 {% block content %}
     <h1>Make List</h1>
     {% if makes %}
@@ -6,11 +6,13 @@
             {% for make in makes %}
                 <li>
                     {{ make.name }}
-                    (<a href="{% url 'make_update' make.id %}">UpDate</a> | <a href="{% url 'make_delete' make.id %}">Delete</a>)
+                    {#                    (<a href="{% url 'make_update' make.id %}">UpDate</a> | <a href="{% url 'make_delete' make.id %}">Delete</a>)#}
+                    (<a href="{% url 'make_update' make.id %}">Update</a> |
+                    <a href="{% url 'make_delete' make.id %}">Delete</a>)
                 </li>
             {% endfor %}
         </ul>
     {% endif %}
-    <a href="#">Add a Make</a> <br>
+    <a href="{% url 'make_create' %}">Add a Make</a> <br>
     <a href="{% url 'all' %}">Back to autos</a>
 {% endblock %}
