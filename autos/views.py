@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from autos.models import Make, Auto
 from autos.forms import MakeForm
@@ -94,6 +94,18 @@ class MakeDelete(LoginRequiredMixin, View):
 
 
 class AutoCreate(LoginRequiredMixin, CreateView):
+    model = Auto
+    fields = '__all__'
+    success_url = reverse_lazy('all')
+
+
+class AutoUpdate(LoginRequiredMixin, UpdateView):
+    model = Auto
+    fields = '__all__'
+    success_url = reverse_lazy('all')
+
+
+class AutoDelete(LoginRequiredMixin, DeleteView):
     model = Auto
     fields = '__all__'
     success_url = reverse_lazy('all')
