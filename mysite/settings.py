@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'sample',
     'hello',
     'form',
-    'autos.apps.AutosConfig'
+    'autos.apps.AutosConfig',
+    'bookone.apps.BookoneConfig'
 ]
 
 MIDDLEWARE = [
