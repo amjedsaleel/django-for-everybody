@@ -36,14 +36,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',   
+    'django.contrib.staticfiles',
+
+    'crispy_forms',
+
     'sample',
     'hello',
     'form',
     'autos.apps.AutosConfig',
     'bookone.apps.BookoneConfig',
     'cats.apps.CatsConfig',
-    'myarts.apps.MyartsConfig'
+    'myarts.apps.MyartsConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +128,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

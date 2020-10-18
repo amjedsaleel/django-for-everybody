@@ -27,5 +27,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('form/', include('form.urls')),
     path('autos/', include('autos.urls')),
-    path('cats/', include('cats.urls'))
+    path('cats/', include('cats.urls')),
+    path('myarts', include('myarts.urls', namespace='myarts'))
 ]

@@ -1,0 +1,10 @@
+{% extends 'base_bootstrap.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit" class="btn btn-success">
+        <input type="submit" class="btn btn-danger" value="Cancel" onclick="window.location.href='{% url 'myarts:all' %}';return false;">
+    </form>
+{% endblock %}
