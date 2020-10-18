@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'form',
     'autos.apps.AutosConfig',
     'bookone.apps.BookoneConfig',
-    'cats.apps.CatsConfig'
+    'cats.apps.CatsConfig',
+    'myarts.apps.MyartsConfig'
 ]
 
 MIDDLEWARE = [
