@@ -1,8 +1,12 @@
-from django.urls import path
-from django.views.generic import TemplateView
+from django.urls import path, reverse_lazy
 
-app_name = 'ads'
+from . import views
 
+app_name = 'myarts'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='base_bootstrap.html'))
+    path('', views.AdListView.as_view(), name='all'),
+    path('ads/<int:pk>/', views.AdDetailView.as_view(), name='ad_detail'),
+    path('ads/create', views.AdCreate.as_view(), name='ad_create'),
+    path('ads/<int:pk>/update', views.AdUpdateView.as_view(), name='ad_update'),
+    path('ads/<int:pk>/delete', views.AdDeleteView.as_view(), name='ad_delete')
 ]
