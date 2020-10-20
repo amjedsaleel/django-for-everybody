@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'bookone.apps.BookoneConfig',
     'cats.apps.CatsConfig',
     'myarts.apps.MyartsConfig',
-    'ads.apps.AdsConfig'
+    'ads.apps.AdsConfig',
+    'bookmany.apps.BookmanyConfig'
 ]
 
 MIDDLEWARE = [
