@@ -24,12 +24,18 @@ class Membership(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
+    LEARNER = 1
+    IA = 1000
+    GSI = 2000
+    INSTRUCTOR = 5000
+    ADMIN = 10000
+
     MEMBER_CHOICES = (
-        ('LEARNER', 'LEARNER'),
-        ('IA', 'Instructional Assistant'),
-        ('GSI', 'Grad Student Instructor'),
-        ('INSTRUCTOR', 'Instructor'),
-        ('ADMIN', 'Administrator'),
+        (LEARNER, 'Learner'),
+        (IA, 'Instructional Assistant'),
+        (GSI, 'Grad Student Instructor'),
+        (INSTRUCTOR, 'Instructor'),
+        (ADMIN, 'Administrator'),
     )
     role = models.TextField(choices=MEMBER_CHOICES, default='LEARNER')
 
