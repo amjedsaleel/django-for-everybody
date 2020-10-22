@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'myarts.apps.MyartsConfig',
     'ads.apps.AdsConfig',
     'bookmany.apps.BookmanyConfig',
-    'many.apps.ManyConfig'
+    'many.apps.ManyConfig',
+    # 'u.apps.UnescoConfig',
+    'unesco.apps.UnescoConfig'
 ]
 
 MIDDLEWARE = [
