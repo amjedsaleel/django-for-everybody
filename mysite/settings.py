@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'bookmany.apps.BookmanyConfig',
     'many.apps.ManyConfig',
     # 'u.apps.UnescoConfig',
-    'unesco.apps.UnescoConfig'
+    'unesco.apps.UnescoConfig',
+    'pics.apps.PicsConfig'
 ]
 
 MIDDLEWARE = [
