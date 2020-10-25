@@ -1,7 +1,9 @@
 from django.db.transaction import commit
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView
+from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from forums.forms import CommentForm
@@ -48,3 +50,9 @@ class ForumUpdateView(OwnerUpdateView):
     template_name = 'forums/form.html'
 
 
+class CommentCreateView(LoginRequiredMixin, View):
+    def post(self, request, pk) :
+        f = get_object_or_404(Forum, id=pk)
+        comment = Comment(text=request.POST['comment'], owner=request.user, forum=f)
+        comment.save()
+        return redirect(reverse('forums:forum_detail', args=[pk]))

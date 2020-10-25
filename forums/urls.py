@@ -10,4 +10,6 @@ urlpatterns = [
     path('create', views.ForumCreateView.as_view(success_url=reverse_lazy('forums:all')), name='forum_create'),
     path('forum/<int:pk>/update',
          views.ForumUpdateView.as_view(success_url=reverse_lazy('forums:all')), name='forum_update'),
+    path('forum/<int:pk>/comment',
+         views.CommentCreateView.as_view(), name='forum_comment_create'),
 ]
