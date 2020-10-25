@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from forums.models import Forum, Comment
+from myarts.owner import OwnerListView, OwnerDetailView, OwnerCreateView, OwnerUpdateView, OwnerDeleteView
 
 # Create your views here.
 
@@ -31,3 +32,13 @@ class ForumCreateView(LoginRequiredMixin, CreateView):
         object.owner = self.request.user
         object.save()
         return super(ForumCreateView, self).form_valid(form)
+
+
+class ForumUpdateView(OwnerUpdateView):
+    model = Forum
+    fields = ['title', 'text']
+    template_name = 'forums/form.html'
+
+
+
+
