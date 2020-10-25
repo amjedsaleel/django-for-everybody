@@ -6,7 +6,7 @@
             <ul>
                 {% for forum in forum_list %}
                     <li>
-                        <a href="#">{{ forum }}</a>
+                        <a href="{% url 'forums:forum_detail' forum.id %}">{{ forum }}</a>
                         {% if forum.owner == user %}
                             (<a href="#">Edit</a> |
                             <a href="#">Delete</a>)

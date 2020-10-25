@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from forums.models import Forum, Comment
 
@@ -12,3 +12,8 @@ class ForumListView(ListView):
     template_name = 'forums/list.html'
     context_object_name = 'forum_list'
 
+
+class ForumDetailView(DetailView):
+    model = Forum
+    template_name = 'forums/detail.html'
+    # context_object_name = 'detail'

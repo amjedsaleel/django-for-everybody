@@ -1,0 +1,23 @@
+{% extends 'base_bootstrap.html' %}
+{% load humanize %}
+{% block content %}
+    <h1>
+        {% if forum.owner == user %}
+            <span style="float: right">
+                <a href="#"><i class="fa fa-pencil"></i></a>
+                <a href="#"><i class="fa fa-trash"></i></a>
+            </span>
+        {% endif %}
+        {{ forum.title }}
+    </h1>
+    <p>
+        {{ forum.text }}
+    </p>
+    <p>
+        {% if forum.updated_at %}
+            ({{ forum.updated_at | naturaltime }})
+        {% else %}
+            ({{ forum.created_at | naturaltime }})
+        {% endif %}
+    </p>
+{% endblock content %}
