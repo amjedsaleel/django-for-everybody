@@ -1,0 +1,21 @@
+{% extends 'base_bootstrap.html' %}
+{% block content %}
+    <h1>Forums</h1>
+    <p>
+        {% if forum_list %}
+            <ul>
+                {% for forum in forum_list %}
+                    <li>
+                        <a href="#">{{ forum }}</a>
+                        {% if forum.owner == user %}
+                            (<a href="#">Edit</a> |
+                            <a href="#">Delete</a>)
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There is no forums in database</p>
+        {% endif %}
+    </p>
+{% endblock %}
