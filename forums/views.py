@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from forums.forms import CommentForm
 from forums.models import Forum, Comment
 from myarts.owner import OwnerListView, OwnerDetailView, OwnerCreateView, OwnerUpdateView, OwnerDeleteView
 
@@ -20,6 +21,13 @@ class ForumDetailView(DetailView):
     model = Forum
     template_name = 'forums/detail.html'
     # context_object_name = 'detail'
+
+    def get(self, request, pk):
+        forum = Forum.objects.get(id=pk)
+        comments = Comment.objects.filter(forum=forum).order_by('-updated_at')
+        comment_form = CommentForm()
+        context = {'forum': forum, 'comments': comments, 'comment_form': comment_form}
+        return render(request, self.template_name, context)
 
 
 class ForumCreateView(LoginRequiredMixin, CreateView):
@@ -38,7 +46,5 @@ class ForumUpdateView(OwnerUpdateView):
     model = Forum
     fields = ['title', 'text']
     template_name = 'forums/form.html'
-
-
 
 
