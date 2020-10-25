@@ -50,8 +50,13 @@ class ForumUpdateView(OwnerUpdateView):
     template_name = 'forums/form.html'
 
 
+class ForumDeleteView(OwnerDeleteView):
+    model = Forum
+    template_name = "forums/delete.html"
+
+
 class CommentCreateView(LoginRequiredMixin, View):
-    def post(self, request, pk) :
+    def post(self, request, pk):
         f = get_object_or_404(Forum, id=pk)
         comment = Comment(text=request.POST['comment'], owner=request.user, forum=f)
         comment.save()

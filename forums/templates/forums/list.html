@@ -9,7 +9,7 @@
                         <a href="{% url 'forums:forum_detail' forum.id %}">{{ forum }}</a>
                         {% if forum.owner == user %}
                             (<a href="{% url 'forums:forum_update' forum.id %}">Edit</a> |
-                            <a href="#">Delete</a>)
+                            <a href="{% url 'forums:forum_delete' forum.id %}">Delete</a>)
                         {% endif %}
                     </li>
                 {% endfor %}

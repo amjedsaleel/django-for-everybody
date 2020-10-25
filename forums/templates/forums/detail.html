@@ -6,7 +6,7 @@
         {% if forum.owner == user %}
             <span style="float: right;">
             <a href="{% url 'forums:forum_update' forum.id %}"><i class="fa fa-pencil"></i></a>
-            <a href="#"><i class="fa fa-trash"></i></a>
+            <a href="{% url 'forums:forum_delete' forum.id %}"><i class="fa fa-trash"></i></a>
             </span>
         {% endif %}
         {{ forum.title }}
