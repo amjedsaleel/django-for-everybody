@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'many.apps.ManyConfig',
     # 'u.apps.UnescoConfig',
     'unesco.apps.UnescoConfig',
-    'pics.apps.PicsConfig'
+    'pics.apps.PicsConfig',
+    'forums.apps.ForumsConfig'
 ]
 
 MIDDLEWARE = [

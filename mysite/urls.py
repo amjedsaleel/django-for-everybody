@@ -32,5 +32,6 @@ urlpatterns = [
     path('cats/', include('cats.urls')),
     path('myarts', include('myarts.urls', namespace='myarts')),
     path('ads/', include('ads.urls', namespace='ads')),
-    path('pics/', include('pics.urls', namespace='pics'))
+    path('pics/', include('pics.urls', namespace='pics')),
+    path('forums/', include('forums.urls'))
 ]
