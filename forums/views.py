@@ -56,3 +56,13 @@ class CommentCreateView(LoginRequiredMixin, View):
         comment = Comment(text=request.POST['comment'], owner=request.user, forum=f)
         comment.save()
         return redirect(reverse('forums:forum_detail', args=[pk]))
+
+
+class CommentDeleteView(OwnerDeleteView):
+    model = Comment
+    template_name = "forums/comment_delete.html"
+
+    # https://stackoverflow.com/questions/26290415/deleteview-with-a-dynamic-success-url-dependent-on-id
+    def get_success_url(self):
+        forum = self.object.forum
+        return reverse('forums:forum_detail', args=[forum.id])
